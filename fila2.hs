@@ -1,8 +1,9 @@
-module (Queue, enqueue, queueEmpty, front) where
+module (Queue, enqueue, queueEmpty, front, newQueue) where
 enqueue :: t -> Queue t -> Queue t
 dequeue :: Queue t-> Queue t
 queueEmpty :: Queue t -> Bool
 front :: Queue t -> t
+newQueue :: Queue t
 
 data Queue t = Fila [t]
 
@@ -16,3 +17,5 @@ queueEmpty _ = False
 
 front (Fila (x : _) = x -- o front eh o elemento a ser retirado
 front _ = error "Fila vazia"
+
+newQueue = (Fila[])
