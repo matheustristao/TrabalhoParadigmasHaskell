@@ -17,9 +17,9 @@ vazia(Fl a) = Fvazia
 push :: a -> Fila a -> Fila a
 push x (Fl y) = Fl(y ++ [x])	
 
-pop :: Fila a -> Fila a
+pop :: Fila a -> Fila b
 pop (Fl []) = error "Fila Vazia!!!!"
-pop (Fl(a:b)) = Fl b
+pop (Fl(a:b)) = Fl a
 
 top :: Fila a -> a
 top (Fl []) = error "Fila Vazia!!!!"
