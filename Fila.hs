@@ -10,11 +10,12 @@ data Fila a = Fvazia
 		| Fl [a]
      deriving (Eq, Show)
 
+
 vazia :: Fila a -> Fila a
 vazia(Fl a) = Fvazia
 
 push :: a -> Fila a -> Fila a
-push x(Fl y) = Fl(x:y)	
+push x (Fl y) = Fl(y ++ [x])	
 
 pop :: Fila a -> Fila a
 pop (Fl []) = error "Fila Vazia!!!!"
