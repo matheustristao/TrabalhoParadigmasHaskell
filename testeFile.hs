@@ -20,9 +20,15 @@ push :: String -> String -> IO()
 push arquivo escrever = appendFile arquivo (escrever++"\n")	
 
 
-pop :: Fila a -> Fila a
-pop (Fl []) = error "Fila Vazia!!!!"
-pop (Fl(a:b)) = Fl b
+--lerChar :: String -> Int -> Int
+--lerChar texto posicao | texto !! posicao == '\n' = posicao
+--		      | otherwise = lerChar texto (posicao+1)
+
+
+--pop arquivo = do
+--	handle <- openFile arquivo ReadWriteMode
+--	texto <- hGetContents handle
+--	hPutStr (handle) (drop (lerChar(texto) (0)) (texto))
 
 
 top :: Fila a -> a
