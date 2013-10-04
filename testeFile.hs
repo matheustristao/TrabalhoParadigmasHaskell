@@ -12,8 +12,8 @@ data Fila a = Fvazia
      deriving (Eq, Show)
 
 
-vazia :: Fila a -> Fila a
-vazia(Fl a) = Fvazia
+vazia :: String -> IO()
+vazia arquivo = writeFile arquivo ""
 
 
 push :: String -> String -> IO()
