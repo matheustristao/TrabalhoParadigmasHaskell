@@ -2,10 +2,13 @@ module Fila
 ( Fila
 , vazia
 , push
+, lerChar
 , pop
+, top
 , listaEmFila
 )where
 
+import System.IO
 
 data Fila a = Fvazia
 		| Fl [a]
@@ -20,15 +23,15 @@ push :: String -> String -> IO()
 push arquivo escrever = appendFile arquivo (escrever++"\n")	
 
 
---lerChar :: String -> Int -> Int
---lerChar texto posicao | texto !! posicao == '\n' = posicao
---		      | otherwise = lerChar texto (posicao+1)
+lerChar :: String -> Int -> Int
+lerChar texto posicao | texto !! posicao == '\n' = posicao+1
+		      | otherwise = lerChar texto (posicao+1)
 
 
---pop arquivo = do
---	handle <- openFile arquivo ReadWriteMode
---	texto <- hGetContents handle
---	hPutStr (handle) (drop (lerChar(texto) (0)) (texto))
+pop arquivo = do
+	texto <- readFile arquivo
+	length texto `seq` (writeFile (arquivo) (drop (lerChar(texto) (0)) (texto)))
+	
 
 
 top :: Fila a -> a
