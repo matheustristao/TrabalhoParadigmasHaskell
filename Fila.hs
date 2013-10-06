@@ -3,6 +3,7 @@ module Fila
 , vazia
 , push
 , pop
+, novaFila
 , listaEmFila
 )where
 
@@ -24,6 +25,9 @@ pop (Fl(a:b)) = Fl b
 top :: Fila a -> a
 top (Fl []) = error "Fila Vazia!!!!"
 top (Fl(a:b)) = a
+
+novaFila :: Fila a
+novaFila (Fl[])
 
 listaEmFila :: [a] -> Fila a
 listaEmFila x = Fl x
